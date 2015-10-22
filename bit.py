@@ -1,39 +1,41 @@
-import binascii
-
 __author__ = 'Przemysław Zamorski'
 __description__ = 'Pierwsze zadanie suma parzystości bodajże '
-binary=[]
-string=''
+
 counter=0
+file=''
+
+#wczytanie pliku do wersji binarnej i zliczenie bitów
 
 with open('test.txt', 'rb') as f1:
     while True:
         bytes = f1.read(1024)
         if bytes:
             for byte in bytes:
-
-                string=''.join((string,bin(byte)))
-                pass # cos tam cos tam na bajtach
-
+                file=''.join((file,bin(byte)))
         else:
             break
 
-print(string)
+for x in file:
+    if x== '1':
+        print(x)
+        counter+=1
 
-# text = open('test.txt', 'r').read()
-# binary=(' '.join(format(ord(x), 'b') for x in text))
-#
-#
-# for bin in binary:
-#     if (bin==1):
-#         counter+=1
-# print(binary)
-# if counter%2:
-#     open('pierwsza_parzystosc', 'w').write("1")
-# else:
-#     open('pierwsza_parzystosc', 'w').write("0")
-#
-# counter=0
+print('plik bez parzystosci',file)
+
+#sprawdzenie czy jest parzyste i dodanie oraz zapisanie w pliku
+if (counter%2 == 0):
+    file+='0';
+else:
+     file+='1';
+
+print('plik  z  parzystosci',file)
+
+second_file = open('pierwsza_parzystosc.txt', 'w')
+second_file.write(file)
+second_file.close()
+
+
+
 #
 # # random function
 # binary_randomized=0
