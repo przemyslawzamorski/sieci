@@ -3,60 +3,76 @@ import binascii
 __author__ = 'Przemysław Zamorski'
 __description__ = 'Pierwsze zadanie suma parzystości bodajże '
 binary=[]
-counter=0
-text = open('test.txt', 'r').read()
-binary=(' '.join(format(ord(x), 'b') for x in text))
-
-
-for bin in binary:
-    if (bin==1):
-        counter+=1
-print(binary)
-if counter%2:
-    open('pierwsza_parzystosc', 'w').write("1")
-else:
-    open('pierwsza_parzystosc', 'w').write("0")
-
+string=''
 counter=0
 
-# random function
-binary_randomized=0
+with open('test.txt', 'rb') as f1:
+    while True:
+        bytes = f1.read(1024)
+        if bytes:
+            for byte in bytes:
 
-for bin in binary_randomize:
-    if (bin==1):
-        counter+=1
+                string=''.join((string,bin(byte)))
+                pass # cos tam cos tam na bajtach
 
-open('random.txt','w').write(binary_randomized)
+        else:
+            break
 
-if counter%2:
-    open('druga_parzystosc.txt', 'w').write("1")
-else:
-    open('druga_parzystosc.txt', 'w').write("0")
+print(string)
 
-
-
-
-
-with open('pierwsza_parzystosc.txt', 'r') as first:
-    print(first)
-
-with open('random.txt', 'r') as randomized:
-    print(randomized)
-
-with open('druga_parzystosc.txt', 'r') as second:
-    print(second)
-
-
-if ((second==first) and (randomized==binary)):
-    print('pliki sa takie same')
-else
-    print('rozne pliki')
-
-
-
-
-
-print(binary)
+# text = open('test.txt', 'r').read()
+# binary=(' '.join(format(ord(x), 'b') for x in text))
+#
+#
+# for bin in binary:
+#     if (bin==1):
+#         counter+=1
+# print(binary)
+# if counter%2:
+#     open('pierwsza_parzystosc', 'w').write("1")
+# else:
+#     open('pierwsza_parzystosc', 'w').write("0")
+#
+# counter=0
+#
+# # random function
+# binary_randomized=0
+#
+# for bin in binary_randomize:
+#     if (bin==1):
+#         counter+=1
+#
+# open('random.txt','w').write(binary_randomized)
+#
+# if counter%2:
+#     open('druga_parzystosc.txt', 'w').write("1")
+# else:
+#     open('druga_parzystosc.txt', 'w').write("0")
+#
+#
+#
+#
+#
+# with open('pierwsza_parzystosc.txt', 'r') as first:
+#     print(first)
+#
+# with open('random.txt', 'r') as randomized:
+#     print(randomized)
+#
+# with open('druga_parzystosc.txt', 'r') as second:
+#     print(second)
+#
+#
+# if ((second==first) and (randomized==binary)):
+#     print('pliki sa takie same')
+# else
+#     print('rozne pliki')
+#
+#
+#
+#
+#
+# print(binary)
 
 
 
