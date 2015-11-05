@@ -29,23 +29,57 @@ else:
      file+='1';
 
 print('plik  z  parzystosci',file)
+
 second_file = open('pierwsza_parzystosc.txt', 'w')
 second_file.write(file)
 second_file.close()
 
 
 
-
-
-
-# #def get_random_noise():
-#     # if random.randint(0, 100)==1:
-#         pos = random.randint(0, 8)
-#         return pos
-#     # return 0
-# tu masz losowanie pozycji a w komencie masz losowanie prawdopodobieństwa
-# #
-# # print(binary)
+#
+# # random function
+# binary_randomized=0
+#
+# for bin in binary_randomize:
+#     if (bin==1):
+#         counter+=1
+#
+# open('random.txt','w').write(binary_randomized)
+#
+# if counter%2:
+#     open('druga_parzystosc.txt', 'w').write("1")
+# else:
+#     open('druga_parzystosc.txt', 'w').write("0")
+#
+#
+#
+#
+#
+# with open('pierwsza_parzystosc.txt', 'r') as first:
+#     print(first)
+#
+# with open('random.txt', 'r') as randomized:
+#     print(randomized)
+#
+# with open('druga_parzystosc.txt', 'r') as second:
+#     print(second)
+#
+#
+# if ((second==first) and (randomized==binary)):
+#     print('pliki sa takie same')
+# else
+#     print('rozne pliki')
+#
+#
+#
+#def get_random_noise():
+    # if random.randint(0, 100)==1:
+        pos = random.randint(0, 8)
+        return pos
+    # return 0
+tu masz losowanie pozycji a w komencie masz losowanie prawdopodobieństwa
+#
+# print(binary)
 
 
 
