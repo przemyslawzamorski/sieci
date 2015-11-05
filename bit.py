@@ -52,7 +52,6 @@ random_file = open('random.txt', 'w')
 random_file.write(file)
 random_file.close()
 
-# print('plik  po   losowaniu',file[:len(file)-1])
 
 if parzystosc(file[:len(file)-1]) == file[len(file)-1:]:
     print('jest ok')
@@ -71,17 +70,3 @@ else:
 
 
 
-# 1 wczytaj binarnie
-# 2 zapisz do listy
-# 3 zsumuj 1 i zapisz jak jest parzysta 1 a jak nie 0
-# 4 na tej liście zrób random change
-# 5 wynik po randomie sumuje parzystość i sprawdzasz
-
-# #def get_random_noise():
-#     # if random.randint(0, 100)==1:
-#         pos = random.randint(0, 8)
-#         return pos
-#     # return 0
-# tu masz losowanie pozycji a w komencie masz losowanie prawdopodobieństwa
-# #
-# # print(binary)
