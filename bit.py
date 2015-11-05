@@ -3,54 +3,61 @@ import random
 __author__ = 'Przemysław Zamorski'
 __description__ = 'Pierwsze zadanie suma parzystości bodajże '
 
-counter=0
-file=''
+file = ''
 
-#wczytanie pliku do wersji binarnej i zliczenie bitów
-
+# wczytanie pliku do wersji binarnej i zliczenie bitów
 with open('test.txt', 'rb') as f1:
     while True:
         bytes = f1.read(1024)
         if bytes:
             for byte in bytes:
-                file=''.join((file,bin(byte)))
+                file = ''.join((file, bin(byte)))
         else:
             break
+print('plik bez parzystosci', file)
 
-for x in file:
-    if x== '1':
-        counter+=1
+#funkcja parzystości
+def parzystosc(plik):
+    counter = 0
+    parz = 0
+    for x in plik:
+            if x == '1':
+                counter += 1
+    if (counter % 2 == 0):
+        parz = '0'
+    else:
+        parz = '1'
+    return parz
 
-print('plik bez parzystosci',file)
+#random funkcja zamienic na replece i zabezpieczyc sie przed b
+def moj_random(plik):
+    pos = random.randint(0, len(plik) - 1)
+    if plik[pos] == '1':
+        plik = plik[:pos] + "0" + plik[pos + 1:]
+    else:
+        plik = plik[:pos] + "1" + plik[pos + 1:]
+    return plik
 
-
-#sprawdzenie czy jest parzyste i dodanie oraz zapisanie w pliku
-if (counter%2 == 0):
-    file+='0';
-else:
-     file+='1';
-
-print('plik  z  parzystosci',file)
+#zliczenie 1 parzystosci
+file+=parzystosc(file)
+print('plik  z  parzystosci', file)
 second_file = open('pierwsza_parzystosc.txt', 'w')
 second_file.write(file)
 second_file.close()
 
-
-#random funkcja zamienic na replece i zabezpieczyc sie przed b
-def moj_random(plik):
-    pos=random.randint(0,len(plik)-1)
-    if plik[pos] == '1':
-      plik=plik[:pos] +"0"+plik[pos+1:]
-    else:
-      plik=plik[:pos] +"1"+plik[pos+1:]
-    return plik
-
 #wykonanie randoma
-file=moj_random(file)
+file = moj_random(file)
 print('plik  po   losowaniu', file)
-random_file=open('random.txt', 'w')
+random_file = open('random.txt', 'w')
 random_file.write(file)
 random_file.close()
+
+# print('plik  po   losowaniu',file[:len(file)-1])
+
+if parzystosc(file[:len(file)-1]) == file[len(file)-1:]:
+    print('jest ok')
+else:
+    print('Nope - nie sa takie same')
 
 
 
