@@ -31,11 +31,14 @@ def parzystosc(plik):
 
 #random funkcja zamienic na replece i zabezpieczyc sie przed b
 def moj_random(plik):
-    pos = random.randint(0, len(plik) - 1)
-    if plik[pos] == '1':
-        plik = plik[:pos] + "0" + plik[pos + 1:]
-    else:
-        plik = plik[:pos] + "1" + plik[pos + 1:]
+    # for petla in range(0,2): #petla dla zmiany 2 znakow
+    for petla in range(random.randint(0, 20)): #petla dla randowowej liczby znakow
+        pos = random.randint(0, len(plik) - 1)
+        print('pos-',pos)
+        if plik[pos] == '1':
+            plik = plik[:pos] + "0" + plik[pos + 1:]
+        else:
+            plik = plik[:pos] + "1" + plik[pos + 1:]
     return plik
 
 #zliczenie 1 parzystosci
