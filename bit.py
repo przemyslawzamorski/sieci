@@ -33,8 +33,8 @@ def parzystosc(plik):
 
 #random funkcja zamienic na replece i zabezpieczyc sie przed b
 def moj_random(plik):
-    # for petla in range(0,2): #petla dla zmiany 2 znakow
-    for petla in range(random.randint(0, 20)): #petla dla randowowej liczby znakow
+    for petla in range(random.randint(0, 6)): #petla dla zmiany 2 znakow
+    # for petla in range(random.randint(0, 20)): #petla dla randowowej liczby znakow
         pos = random.randint(0, len(plik) - 1)
         if plik[pos] == '1':
             plik = plik[:pos] + "0" + plik[pos + 1:]
@@ -66,43 +66,7 @@ else:
     print('Bit parzystosci - pliki się nie zagadzaja')
     print('')
 
-##SUMA MODULO##
-print('SUMA MODULO')
 
-#funkcja zliczajaca jedynki
-def zlicz(plik):
-    counter = 0
-    for x in plik:
-            if x == '1':
-                counter += 1
-    return counter
-
-
-
-#wczytywanie binarne pliku
-with open('test.txt', 'rb') as f1:
-    while True:
-        bytes = f1.read(1024)
-        if bytes:
-            for byte in bytes:
-                mod_file = ''.join((mod_file, bin(byte)))
-        else:
-            break
-
-print('plik binarny wczytany do testu', mod_file)
-first_mod=zlicz(mod_file)%12
-
-mod_random=moj_random(mod_file)
-print('Plik w sumie modulo po zakloceniach' , mod_random)
-second_mod=zlicz(mod_random)%12
-
-if first_mod==second_mod:
-    print('Suma modulo -  pliki zgadzaja sie')
-    print('')
-
-else:
-    print('Suma modulo - pliki sie nie zgadzaja')
-    print('')
 
 
 
